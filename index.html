@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Tech Empire | Apps & Games</title>
+    <style>
+        /* Modern Dark Theme CSS */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f172a;
+            color: #f1f5f9;
+        }
+        header {
+            background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+        }
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .section-title {
+            font-size: 1.8rem;
+            border-bottom: 2px solid #334155;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        /* App Cards */
+        .app-grid {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .app-card {
+            background-color: #1e293b;
+            border-radius: 15px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        .app-card:hover {
+            transform: translateY(-10px);
+            border: 1px solid #a855f7;
+        }
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #334155;
+            border-radius: 20px;
+            margin: 0 auto 15px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+        .app-title {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            color: #fff;
+        }
+        .app-desc {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+        .download-btn {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            display: inline-block;
+            transition: box-shadow 0.3s ease;
+        }
+        .download-btn:hover {
+            box-shadow: 0 0 15px #10b981;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🚀 My Tech Empire</h1>
+        <p>Download Premium Apps & Games Directly</p>
+    </header>
+
+    <div class="container">
+        <div class="section-title">🔥 Featured Apps</div>
+        
+        <div class="app-grid">
+            <div class="app-card">
+                <div class="app-icon">💬</div>
+                <div class="app-title">Secret Chat Pro</div>
+                <div class="app-desc">The ultimate secure chat app with anonymous messaging & clean UI. No ads!</div>
+                <a href="#" class="download-btn">Download APK</a>
+            </div>
+
+            <div class="app-card">
+                <div class="app-icon">🎮</div>
+                <div class="app-title">Upcoming Game</div>
+                <div class="app-desc">Our next big project is currently under development. Stay tuned!</div>
+                <a href="#" style="background: #475569;" class="download-btn">Coming Soon</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
