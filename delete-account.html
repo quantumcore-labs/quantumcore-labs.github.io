@@ -15,30 +15,104 @@
         input:focus { border-color: #ef4444; outline: none; }
         .btn-danger { width: 100%; background: #ef4444; color: white; padding: 14px; margin-top: 10px; border: none; border-radius: 8px; font-weight: bold; font-size: 1rem; cursor: pointer; transition: 0.3s; }
         .btn-danger:hover { background: #dc2626; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(239, 68, 68, 0.3);}
+        .btn-danger:disabled { background: #475569; cursor: not-allowed; transform: none; box-shadow: none; }
         .back-btn { display: block; margin-top: 20px; color: #a855f7; text-decoration: none; }
+        #message { margin-top: 15px; font-weight: bold; font-size: 0.9rem; min-height: 20px; }
+        .error { color: #ef4444; }
+        .success { color: #22c55e; }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Delete Account</h1>
-        <p>Warning: This action is permanent. All your chats, media, and connections will be permanently wiped from our encrypted servers.</p>
+        <p>Warning: Enter your correct FlirtApp Email and Password. This will authenticate your identity and permanently wipe your account access.</p>
         
-        <form onsubmit="alert('Authentication successful. Your account deletion request has been verified and data will be permanently wiped within 24 hours.'); window.location.href='index.html'; return false;">
-            
+        <form id="deleteForm">
             <div class="input-group">
-                <label>FlirtApp Unique ID or Email</label>
-                <input type="text" placeholder="e.g. user@gmail.com or UID123" required>
+                <label>Registered Email</label>
+                <input type="email" id="email" placeholder="e.g. user@gmail.com" required>
             </div>
-
             <div class="input-group">
                 <label>Account Password</label>
-                <input type="password" placeholder="Enter your password" required>
+                <input type="password" id="password" placeholder="Enter your password" required>
             </div>
-
-            <button type="submit" class="btn-danger">Permanently Delete My Data</button>
+            <button type="submit" id="submitBtn" class="btn-danger">Verify & Permanently Delete</button>
         </form>
         
+        <div id="message"></div>
         <a href="index.html" class="back-btn">← Cancel and return to Safety</a>
     </div>
+
+    <script type="module">
+        // 1. Importing exact functions from Firebase CDNs
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword, deleteUser } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-auth.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-analytics.js";
+
+        // 2. Tumhara Config (Yahan apni Asli Keys replace kar lena baad me)
+        const firebaseConfig = {
+            apiKey: "AIzaSyAtJ3vCvIaO2Ie5X0yBW69uWIDTBkFo7fM",
+            authDomain: "handshakeg.firebaseapp.com",
+            databaseURL: "https://handshakeg-default-rtdb.firebaseio.com",
+            projectId: "handshakeg",
+            storageBucket: "handshakeg.firebasestorage.app",
+            messagingSenderId: "861469870279",
+            appId: "1:861469870279:web:b2a66151a3237ba5bb16e2",
+            measurementId: "G-5C28J9LD67"
+        };
+
+        // 3. Initialize Firebase Engine
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const analytics = getAnalytics(app); // Tracking ke liye acha hai
+
+        // 4. Form Submit Logic (Magic Starts Here)
+        document.getElementById('deleteForm').addEventListener('submit', async (e) => {
+            e.preventDefault(); // Page refresh hone se roko
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const msgBox = document.getElementById('message');
+            const btn = document.getElementById('submitBtn');
+
+            // Button ko disable karo taaki user baar-baar click na kare
+            btn.innerText = "Authenticating & Deleting...";
+            btn.disabled = true;
+            msgBox.innerHTML = "";
+
+            try {
+                // Step A: Pehle user ka password verify karo (Security First)
+                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+
+                // Step B: Agar verify ho gaya, toh account hamesha ke liye uda do!
+                await deleteUser(user);
+                
+                // Step C: Success Message
+                msgBox.className = "success";
+                msgBox.innerText = "✅ Account successfully wiped! Redirecting...";
+                
+                // 3 second baad automatic Home page par bhej do
+                setTimeout(() => window.location.href = 'index.html', 3000);
+
+            } catch (error) {
+                // Agar password galat hua ya koi aur error aayi
+                btn.innerText = "Verify & Permanently Delete";
+                btn.disabled = false;
+                msgBox.className = "error";
+                
+                if (error.code === 'auth/wrong-password' || error.code === 'auth/invalid-credential') {
+                    msgBox.innerText = "❌ Incorrect Password! Access Denied.";
+                } else if (error.code === 'auth/user-not-found') {
+                    msgBox.innerText = "❌ No account found with this email.";
+                } else if (error.code === 'auth/too-many-requests') {
+                    msgBox.innerText = "❌ Too many failed attempts. Try again later.";
+                } else {
+                    msgBox.innerText = "❌ Error: " + error.message;
+                }
+                console.error("Deletion Error:", error);
+            }
+        });
+    </script>
 </body>
 </html>
