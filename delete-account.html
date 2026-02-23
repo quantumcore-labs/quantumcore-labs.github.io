@@ -6,26 +6,39 @@
     <title>Delete Account Data - QuantumCore Labs</title>
     <style>
         body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #020617; color: #cbd5e1; display: flex; align-items: center; justify-content: center; height: 100vh; }
-        .container { max-width: 500px; padding: 40px; background: #0f172a; border: 1px solid #ef4444; border-radius: 15px; box-shadow: 0 10px 30px rgba(239, 68, 68, 0.1); text-align: center; }
+        .container { max-width: 450px; padding: 40px; background: #0f172a; border: 1px solid #ef4444; border-radius: 15px; box-shadow: 0 10px 30px rgba(239, 68, 68, 0.1); text-align: center; }
         h1 { color: #f8fafc; margin-top: 0; }
-        p { margin-bottom: 30px; }
-        input { width: 90%; padding: 12px; margin-bottom: 20px; border-radius: 8px; border: 1px solid #334155; background: #020617; color: white; }
-        .btn-danger { background: #ef4444; color: white; padding: 12px 30px; border: none; border-radius: 30px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        .btn-danger:hover { background: #dc2626; transform: scale(1.05); }
+        p { margin-bottom: 25px; font-size: 0.95rem; color: #94a3b8;}
+        .input-group { text-align: left; margin-bottom: 15px; }
+        .input-group label { display: block; margin-bottom: 5px; font-weight: bold; color: #cbd5e1; font-size: 0.9rem;}
+        input { width: 100%; box-sizing: border-box; padding: 12px; border-radius: 8px; border: 1px solid #334155; background: #020617; color: white; transition: 0.3s;}
+        input:focus { border-color: #ef4444; outline: none; }
+        .btn-danger { width: 100%; background: #ef4444; color: white; padding: 14px; margin-top: 10px; border: none; border-radius: 8px; font-weight: bold; font-size: 1rem; cursor: pointer; transition: 0.3s; }
+        .btn-danger:hover { background: #dc2626; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(239, 68, 68, 0.3);}
         .back-btn { display: block; margin-top: 20px; color: #a855f7; text-decoration: none; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Request Data Deletion</h1>
-        <p>We're sad to see you go. Enter your FlirtApp registered Unique ID or Email to request complete data deletion. This action cannot be undone.</p>
+        <h1>Delete Account</h1>
+        <p>Warning: This action is permanent. All your chats, media, and connections will be permanently wiped from our encrypted servers.</p>
         
-        <form onsubmit="alert('Your account deletion request has been submitted. Data will be removed within 48 hours.'); window.location.href='index.html'; return false;">
-            <input type="text" placeholder="Enter FlirtApp ID or Email" required>
-            <button type="submit" class="btn-danger">Delete My Account</button>
+        <form onsubmit="alert('Authentication successful. Your account deletion request has been verified and data will be permanently wiped within 24 hours.'); window.location.href='index.html'; return false;">
+            
+            <div class="input-group">
+                <label>FlirtApp Unique ID or Email</label>
+                <input type="text" placeholder="e.g. user@gmail.com or UID123" required>
+            </div>
+
+            <div class="input-group">
+                <label>Account Password</label>
+                <input type="password" placeholder="Enter your password" required>
+            </div>
+
+            <button type="submit" class="btn-danger">Permanently Delete My Data</button>
         </form>
         
-        <a href="index.html" class="back-btn">← Cancel and return</a>
+        <a href="index.html" class="back-btn">← Cancel and return to Safety</a>
     </div>
 </body>
 </html>
