@@ -3,62 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - FlirtApp by QuantumCore Labs</title>
+    <title>Privacy Policy | FlirtApp by QuantumCore Labs</title>
     <style>
-        body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #020617; color: #cbd5e1; line-height: 1.6; }
-        .container { max-width: 800px; margin: 50px auto; padding: 40px; background: #0f172a; border: 1px solid #1e293b; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        h1, h2 { color: #f8fafc; }
-        h1 { text-align: center; background: linear-gradient(90deg, #3b82f6, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 5px;}
-        .date { text-align: center; color: #64748b; margin-bottom: 40px; font-style: italic; }
-        a { color: #3b82f6; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .back-btn { display: inline-block; margin-bottom: 20px; color: #a855f7; font-weight: bold; }
-        ul { padding-left: 20px; }
-        li { margin-bottom: 10px; }
+        /* 🚀 Global Styles */
+        html { scroll-behavior: smooth; }
+        body { 
+            margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #020617; color: #cbd5e1; line-height: 1.7; 
+            background-image: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #020617 70%);
+            background-attachment: fixed;
+        }
+        
+        /* Navbar (Simple for Legal Pages) */
+        nav {
+            padding: 20px 50px; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(10px);
+            border-bottom: 1px solid #1e293b; position: sticky; top: 0; z-index: 100;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .back-btn { color: #a855f7; text-decoration: none; font-weight: bold; transition: color 0.3s; }
+        .back-btn:hover { color: #3b82f6; }
+        .logo {
+            font-size: 20px; font-weight: bold;
+            background: linear-gradient(90deg, #3b82f6, #a855f7);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        /* 🚀 Premium Container */
+        .container { 
+            max-width: 850px; margin: 50px auto; padding: 50px; 
+            background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(20px);
+            border: 1px solid #1e293b; border-radius: 20px; 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5); 
+        }
+        
+        /* Typography */
+        h1 { 
+            text-align: center; font-size: 2.8rem; margin-bottom: 10px;
+            background: linear-gradient(90deg, #3b82f6, #a855f7); 
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+        }
+        .date-badge { 
+            display: block; text-align: center; color: #94a3b8; margin-bottom: 40px; 
+            font-size: 0.95rem; font-weight: 500;
+        }
+        .date-badge span { background: #1e293b; padding: 5px 15px; border-radius: 20px; border: 1px solid #334155;}
+        
+        h2 { color: #f8fafc; margin-top: 40px; border-left: 4px solid #a855f7; padding-left: 15px; font-size: 1.5rem; }
+        a { color: #3b82f6; text-decoration: none; transition: color 0.3s; }
+        a:hover { color: #a855f7; text-decoration: underline; }
+        
+        /* 🚀 Content Formatting */
+        .policy-section {
+            background: rgba(255, 255, 255, 0.02); padding: 20px 25px;
+            border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 25px;
+        }
+        ul { padding-left: 20px; margin-top: 10px; }
+        li { margin-bottom: 12px; color: #94a3b8; }
+        li strong { color: #cbd5e1; }
+
+        /* Table of Contents (Good for SEO/AdSense) */
+        .toc {
+            background: #0f172a; padding: 20px; border-radius: 12px;
+            border: 1px dashed #334155; margin-bottom: 40px;
+        }
+        .toc h3 { margin-top: 0; color: #a855f7; font-size: 1.2rem; }
+        .toc ul { list-style-type: none; padding-left: 0; }
+        .toc li { margin-bottom: 8px; }
+        .toc a { color: #94a3b8; text-decoration: none; }
+        .toc a:hover { color: #f8fafc; }
+
+        /* 💰 Professional Ad Container */
+        .pro-ad-container {
+            background: #0f172a; border: 1px solid #1e293b; color: #475569;
+            padding: 20px; margin: 40px auto 0 auto; text-align: center; 
+            border-radius: 12px; position: relative;
+        }
+        .ad-badge {
+            position: absolute; top: -12px; left: 20px; background: #3b82f6;
+            color: white; padding: 4px 12px; font-size: 0.75rem; font-weight: bold;
+            border-radius: 20px; letter-spacing: 1px; text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 30px 20px; margin: 20px; }
+            h1 { font-size: 2rem; }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
+
+    <nav>
         <a href="index.html" class="back-btn">← Back to Home</a>
+        <div class="logo">QuantumCore Labs</div>
+    </nav>
+
+    <div class="container">
         <h1>Privacy Policy</h1>
-        <p class="date">Effective Date: 18 February 2026</p>
+        <div class="date-badge"><span>Last Updated: 18 February 2026</span></div>
         
-        <p>Welcome to FlirtApp ("we," "our," or "us"). We are committed to protecting your privacy and ensuring that your personal data and communications remain strictly confidential.</p>
+        <p style="text-align: center; font-size: 1.1rem; max-width: 700px; margin: 0 auto 40px auto;">
+            Welcome to FlirtApp ("we," "our," or "us"). We are committed to protecting your privacy and ensuring that your personal data and communications remain strictly confidential.
+        </p>
 
-        <h2>1. Information We Collect</h2>
-        <ul>
-            <li><strong>Account Information:</strong> Display name, unique User ID (UID), and Bio.</li>
-            <li><strong>Communication Metadata:</strong> Call logs (caller ID, receiver ID, call duration, timestamp).</li>
-            <li><strong>Device Data:</strong> Firebase Cloud Messaging (FCM) tokens for push notifications.</li>
-        </ul>
+        <div class="toc">
+            <h3>📑 Table of Contents</h3>
+            <ul>
+                <li><a href="#info-collect">1. Information We Collect</a></li>
+                <li><a href="#e2ee">2. End-to-End Encryption (E2EE)</a></li>
+                <li><a href="#third-party">3. Third-Party Service Providers</a></li>
+                <li><a href="#permissions">4. Device Permissions</a></li>
+                <li><a href="#retention">5. Data Retention and Deletion</a></li>
+                <li><a href="#contact">6. Contact Us</a></li>
+            </ul>
+        </div>
 
-        <h2>2. End-to-End Encryption (E2EE) & Content Security</h2>
-        <ul>
-            <li><strong>Encrypted Messages:</strong> All text and media URLs are secured using Advanced Encryption Standard (AES). We cannot read your messages.</li>
-            <li><strong>Encrypted Calls:</strong> Audio and video calls are powered by Agora and secured with AES-128-GCM2 Encryption. Calls are never recorded.</li>
-            <li><strong>Screenshot Protection:</strong> The app employs system-level screen capture prevention.</li>
-        </ul>
+        <div class="policy-section" id="info-collect">
+            <h2>1. Information We Collect 📊</h2>
+            <ul>
+                <li><strong>Account Information:</strong> Display name, unique User ID (UID), and Bio.</li>
+                <li><strong>Communication Metadata:</strong> Call logs (caller ID, receiver ID, call duration, timestamp).</li>
+                <li><strong>Device Data:</strong> Firebase Cloud Messaging (FCM) tokens for push notifications.</li>
+            </ul>
+        </div>
 
-        <h2>3. Third-Party Service Providers</h2>
-        <ul>
-            <li><strong>Google Firebase:</strong> For authentication, database (Firestore), and notifications.</li>
-            <li><strong>Agora.io:</strong> To facilitate real-time, encrypted calling.</li>
-            <li><strong>Cloudinary:</strong> For securely hosting media files.</li>
-            <li><strong>Google AdMob:</strong> For displaying relevant advertisements.</li>
-        </ul>
+        <div class="policy-section" id="e2ee">
+            <h2>2. End-to-End Encryption (E2EE) & Content Security 🔒</h2>
+            <ul>
+                <li><strong>Encrypted Messages:</strong> All text and media URLs are secured using Advanced Encryption Standard (AES). We cannot read your messages.</li>
+                <li><strong>Encrypted Calls:</strong> Audio and video calls are powered by Agora and secured with AES-128-GCM2 Encryption. Calls are never recorded.</li>
+                <li><strong>Screenshot Protection:</strong> The app employs system-level screen capture prevention.</li>
+            </ul>
+        </div>
 
-        <h2>4. Device Permissions</h2>
-        <ul>
-            <li><strong>Camera & Microphone:</strong> For calls and voice messages.</li>
-            <li><strong>Photo Library / Storage:</strong> To send media.</li>
-            <li><strong>Notifications:</strong> To alert you of new messages/calls.</li>
-        </ul>
+        <div class="policy-section" id="third-party">
+            <h2>3. Third-Party Service Providers 🤝</h2>
+            <ul>
+                <li><strong>Google Firebase:</strong> For authentication, database (Firestore), and notifications.</li>
+                <li><strong>Agora.io:</strong> To facilitate real-time, encrypted calling.</li>
+                <li><strong>Cloudinary:</strong> For securely hosting media files.</li>
+                <li><strong>Google AdMob:</strong> For displaying relevant advertisements.</li>
+            </ul>
+        </div>
 
-        <h2>5. Data Retention and Deletion</h2>
-        <p>Users can delete messages for everyone. When selected, the data is permanently wiped from our databases and cloud storage. You can completely delete your account and all associated data at any time from our <a href="delete-account.html">Data Deletion Page</a> or within the app settings.</p>
+        <div class="policy-section" id="permissions">
+            <h2>4. Device Permissions 📱</h2>
+            <ul>
+                <li><strong>Camera & Microphone:</strong> For calls and voice messages.</li>
+                <li><strong>Photo Library / Storage:</strong> To send media.</li>
+                <li><strong>Notifications:</strong> To alert you of new messages/calls.</li>
+            </ul>
+        </div>
 
-        <h2>6. Contact Us</h2>
-        <p>If you have any questions, please contact us at: <a href="mailto:flirtapp6@gmail.com">flirtapp6@gmail.com</a></p>
+        <div class="policy-section" id="retention">
+            <h2>5. Data Retention and Deletion 🗑️</h2>
+            <p>Users can delete messages for everyone. When selected, the data is permanently wiped from our databases and cloud storage. You can completely delete your account and all associated data at any time from our <a href="delete-account.html">Data Deletion Page</a> or within the app settings.</p>
+        </div>
+
+        <div class="policy-section" id="contact">
+            <h2>6. Contact Us ✉️</h2>
+            <p>If you have any questions or concerns regarding this Privacy Policy, please contact our support team at: <br><br> 
+            <a href="mailto:flirtapp6@gmail.com" style="font-size: 1.2rem; font-weight: bold;">📧 flirtapp6@gmail.com</a></p>
+        </div>
+
+        <div class="pro-ad-container">
+            <div class="ad-badge">Advertisement</div>
+            <p style="font-size: 12px; margin: 10px 0;">Premium Sponsor Space</p>
+            <a href="mailto:tehok908@gmail.com" style="color: #94a3b8; font-size: 14px; text-decoration: underline;">Advertise your brand here</a>
+        </div>
+
     </div>
+
 </body>
 </html>
