@@ -5,10 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QuantumCore Labs | Next-Gen Social Tech</title>
     <style>
+        /* 🚀 1. Smooth Scrolling Added */
+        html {
+            scroll-behavior: smooth; 
+        }
+        
         body {
             margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #020617; color: #f8fafc; overflow-x: hidden;
         }
+        
         /* Navbar */
         nav {
             display: flex; justify-content: space-between; align-items: center;
@@ -26,15 +32,41 @@
         }
         nav .links a:hover { color: #a855f7; }
         
-        /* Hero Section */
+        /* Hero Section with Animation */
         .hero {
-            text-align: center; padding: 120px 20px 60px 20px;
+            display: flex; justify-content: center; align-items: center; flex-wrap: wrap;
+            padding: 100px 20px 80px 20px; gap: 50px;
             background: radial-gradient(circle at center, #1e1b4b 0%, #020617 80%);
         }
-        .hero h1 { font-size: 4rem; margin-bottom: 20px; letter-spacing: -1px; }
-        .hero p { font-size: 1.3rem; color: #94a3b8; max-width: 650px; margin: 0 auto; line-height: 1.6; }
+        .hero-text { max-width: 600px; text-align: left; }
+        .hero-text h1 { font-size: 4rem; margin-bottom: 20px; letter-spacing: -1px; line-height: 1.1; }
+        .hero-text p { font-size: 1.3rem; color: #94a3b8; margin-bottom: 30px; line-height: 1.6; }
         
-        /* 🔥 THE VIRAL LOOP SECTION (New) */
+        /* 🚀 2. Floating App Showcase (CSS Magic) */
+        .floating-app {
+            width: 260px; height: 500px; 
+            background: linear-gradient(180deg, #0f172a 0%, #1e1b4b 100%);
+            border: 8px solid #334155; border-radius: 40px;
+            box-shadow: 0 20px 50px rgba(168, 85, 247, 0.4);
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            animation: float 4s ease-in-out infinite; position: relative;
+        }
+        .floating-app::before {
+            content: ''; position: absolute; top: 10px; width: 80px; height: 20px;
+            background: #020617; border-radius: 20px; /* Fake Notch */
+        }
+        .app-icon-mock {
+            font-size: 60px; margin-bottom: 20px;
+            filter: drop-shadow(0 0 15px rgba(168, 85, 247, 0.8));
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        /* Viral Section */
         .viral-section {
             background: rgba(30, 41, 59, 0.4); border: 1px dashed #a855f7; 
             margin: 0 auto 60px auto; max-width: 800px; padding: 40px 20px; 
@@ -49,12 +81,24 @@
             margin-bottom: 20px; display: inline-block; text-align: left; font-style: italic;
         }
 
-        /* 🔥 WEB AD PLACEHOLDER (New) */
-        .ad-space {
+        /* 🚀 3. Professional Ad Container */
+        .pro-ad-container {
             background: #0f172a; border: 1px solid #1e293b; color: #475569;
-            padding: 20px; margin: 0 auto 60px auto; max-width: 728px; 
-            text-align: center; border-radius: 8px; font-size: 0.85rem; letter-spacing: 1px;
+            padding: 30px 20px; margin: 0 auto 80px auto; max-width: 728px; 
+            text-align: center; border-radius: 12px; position: relative;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
         }
+        .ad-badge {
+            position: absolute; top: -12px; left: 20px; background: #3b82f6;
+            color: white; padding: 4px 12px; font-size: 0.75rem; font-weight: bold;
+            border-radius: 20px; letter-spacing: 1px; text-transform: uppercase;
+        }
+        .custom-sponsor {
+            display: block; color: #94a3b8; text-decoration: none;
+            border: 2px dashed #334155; padding: 30px; border-radius: 8px;
+            transition: all 0.3s;
+        }
+        .custom-sponsor:hover { border-color: #a855f7; background: rgba(168, 85, 247, 0.05); color: #fff; }
 
         /* Products Grid */
         .section-title { text-align: center; font-size: 2.5rem; margin: 40px 0; color: #f1f5f9; }
@@ -78,7 +122,7 @@
         .card h3 { font-size: 1.8rem; margin: 10px 0; color: #fff; }
         .card p { color: #94a3b8; font-size: 1rem; margin-bottom: 30px; line-height: 1.6; }
         
-        /* Buttons */
+        /* 🚀 4. Glowing Buttons */
         .btn {
             padding: 14px 30px; border-radius: 30px; text-decoration: none; font-weight: bold;
             display: inline-block; transition: all 0.3s; font-size: 1.1rem;
@@ -86,9 +130,15 @@
         .btn-primary {
             background: linear-gradient(135deg, #3b82f6, #a855f7); color: white;
             box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+            animation: pulse 2s infinite; /* Adds a subtle breathing effect */
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(168, 85, 247, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(168, 85, 247, 0); }
         }
         .btn-secondary { background: #1e293b; color: #94a3b8; border: 1px solid #334155; pointer-events: none; }
-        .btn-primary:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(168, 85, 247, 0.6); }
+        .btn-primary:hover { transform: scale(1.05); animation: none; box-shadow: 0 6px 20px rgba(168, 85, 247, 0.8); }
 
         /* Sponsorship Banner */
         .sponsor-section {
@@ -106,9 +156,12 @@
         
         /* Mobile Responsive */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
+            .hero { text-align: center; flex-direction: column; padding-top: 60px; }
+            .hero-text { text-align: center; }
+            .hero-text h1 { font-size: 2.5rem; }
             nav { flex-direction: column; gap: 15px; padding: 20px; }
             nav .links a { margin: 0 10px; }
+            .floating-app { display: none; } /* Hide heavy animation on small mobiles for speed */
         }
     </style>
 </head>
@@ -123,8 +176,16 @@
     </nav>
 
     <div class="hero">
-        <h1>Shaping the Future of Social</h1>
-        <p>We build secure, anonymous, and viral mobile applications that connect millions without compromising privacy.</p>
+        <div class="hero-text">
+            <h1>Shaping the Future of Social</h1>
+            <p>We build secure, anonymous, and viral mobile applications that connect millions without compromising privacy. Welcome to the next generation.</p>
+            <a href="#products" class="btn btn-primary" style="animation: none;">Explore FlirtApp 👇</a>
+        </div>
+        <div class="floating-app">
+            <div class="app-icon-mock">💬</div>
+            <h2 style="color: white; margin: 0;">FlirtApp</h2>
+            <p style="color: #94a3b8; font-size: 14px;">100% Secure & Private</p>
+        </div>
     </div>
 
     <div class="viral-section" id="secret">
@@ -132,12 +193,18 @@
         <p>Your friend is waiting! Send them a cute compliment, a funny memory, or a secret confession. It's 100% safe and hidden! 🙈</p>
         <div class="fake-input">Write something nice here... ✨</div>
         <br>
-        <a href="https://github.com/quantumcore-labs/quantumcore-labs.github.io/releases/download/v1.0.0/FlirtApp_v1.0.0.apk" class="btn btn-primary" class="btn btn-primary">Download App to Send</a>
+        <a href="https://github.com/quantumcore-labs/quantumcore-labs.github.io/releases/download/v1.0.0/FlirtApp_v1.0.0.apk" class="btn btn-primary">Download App to Send</a>
     </div>
 
-    <div class="ad-space">
-        [ Advertisement Space - Google AdSense will appear here ]
-    </div>
+    <div class="pro-ad-container">
+        <div class="ad-badge">Sponsored</div>
+        
+        <a href="mailto:tehok908@gmail.com" class="custom-sponsor">
+            <h3>Place Your Brand Here 🚀</h3>
+            <p>Reach thousands of highly engaged Gen-Z users. Click to partner with us!</p>
+        </a>
+
+        </div>
 
     <div id="products" class="section-title">Our Ecosystem</div>
     <div class="products">
@@ -163,7 +230,7 @@
         <h2>Grow Your Business With Us 📈</h2>
         <p>Want to showcase your brand to thousands of highly engaged users on FlirtApp? We offer premium, unblockable in-app banner placements at unbeatable rates.</p>
         
-        <a href="mailto:tehok908@gmail.com" class="btn btn-primary">Contact for Sponsorship</a>
+        <a href="mailto:tehok908@gmail.com" class="btn btn-primary" style="animation: none;">Contact for Sponsorship</a>
     </div>
 
     <footer>
