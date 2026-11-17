@@ -1,260 +1,31 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuantumCore Labs | Next-Gen Social Tech</title>
-    <style>
-        /* 🚀 1. Smooth Scrolling Added */
-        html {
-            scroll-behavior: smooth; 
-        }
-        
-        body {
-            margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #020617; color: #f8fafc; overflow-x: hidden;
-        }
-        
-        /* Navbar */
-        nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 50px; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(10px);
-            border-bottom: 1px solid #1e293b; position: sticky; top: 0; z-index: 100;
-        }
-        nav .logo {
-            font-size: 26px; font-weight: 800; letter-spacing: 1px;
-            background: linear-gradient(90deg, #3b82f6, #a855f7);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-        nav .links a {
-            color: #cbd5e1; text-decoration: none; margin-left: 25px; font-weight: 500;
-            transition: color 0.3s;
-        }
-        nav .links a:hover { color: #a855f7; }
-        
-        /* Hero Section with Animation */
-        .hero {
-            display: flex; justify-content: center; align-items: center; flex-wrap: wrap;
-            padding: 100px 20px 80px 20px; gap: 50px;
-            background: radial-gradient(circle at center, #1e1b4b 0%, #020617 80%);
-        }
-        .hero-text { max-width: 600px; text-align: left; }
-        .hero-text h1 { font-size: 4rem; margin-bottom: 20px; letter-spacing: -1px; line-height: 1.1; }
-        .hero-text p { font-size: 1.3rem; color: #94a3b8; margin-bottom: 30px; line-height: 1.6; }
-        
-        /* 🚀 2. Floating App Showcase (CSS Magic) */
-        .floating-app {
-            width: 260px; height: 500px; 
-            background: linear-gradient(180deg, #0f172a 0%, #1e1b4b 100%);
-            border: 8px solid #334155; border-radius: 40px;
-            box-shadow: 0 20px 50px rgba(168, 85, 247, 0.4);
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            animation: float 4s ease-in-out infinite; position: relative;
-        }
-        .floating-app::before {
-            content: ''; position: absolute; top: 10px; width: 80px; height: 20px;
-            background: #020617; border-radius: 20px; /* Fake Notch */
-        }
-        .app-icon-mock {
-            font-size: 60px; margin-bottom: 20px;
-            filter: drop-shadow(0 0 15px rgba(168, 85, 247, 0.8));
-        }
-        
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        /* Viral Section */
-        .viral-section {
-            background: rgba(30, 41, 59, 0.4); border: 1px dashed #a855f7; 
-            margin: 0 auto 60px auto; max-width: 800px; padding: 40px 20px; 
-            border-radius: 20px; text-align: center;
-            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.1);
-        }
-        .viral-section h2 { font-size: 2.2rem; margin-top: 0; color: #f8fafc; }
-        .viral-section p { color: #cbd5e1; font-size: 1.1rem; margin-bottom: 25px; }
-        .fake-input { 
-            background: #0f172a; border: 1px solid #334155; padding: 15px 20px; 
-            width: 80%; max-width: 450px; border-radius: 12px; color: #64748b; 
-            margin-bottom: 20px; display: inline-block; text-align: left; font-style: italic;
-        }
-
-        /* 🚀 3. Professional Ad Container */
-        .pro-ad-container {
-            background: #0f172a; border: 1px solid #1e293b; color: #475569;
-            padding: 30px 20px; margin: 0 auto 80px auto; max-width: 728px; 
-            text-align: center; border-radius: 12px; position: relative;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
-        }
-        .ad-badge {
-            position: absolute; top: -12px; left: 20px; background: #3b82f6;
-            color: white; padding: 4px 12px; font-size: 0.75rem; font-weight: bold;
-            border-radius: 20px; letter-spacing: 1px; text-transform: uppercase;
-        }
-        .custom-sponsor {
-            display: block; color: #94a3b8; text-decoration: none;
-            border: 2px dashed #334155; padding: 30px; border-radius: 8px;
-            transition: all 0.3s;
-        }
-        .custom-sponsor:hover { border-color: #a855f7; background: rgba(168, 85, 247, 0.05); color: #fff; }
-
-        /* Products Grid */
-        .section-title { text-align: center; font-size: 2.5rem; margin: 40px 0; color: #f1f5f9; }
-        .products { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; padding: 0 20px 80px 20px; }
-        .card {
-            background: #0f172a; border: 1px solid #1e293b; border-radius: 24px;
-            padding: 40px 30px; width: 340px; text-align: center;
-            transition: transform 0.4s, box-shadow 0.4s; position: relative; overflow: hidden;
-        }
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(168, 85, 247, 0.2);
-            border-color: #3b82f6;
-        }
-        .badge {
-            position: absolute; top: 20px; right: -30px; background: #ef4444;
-            color: white; font-size: 0.8rem; font-weight: bold; padding: 5px 40px;
-            transform: rotate(45deg);
-        }
-        .card-icon { font-size: 60px; margin-bottom: 20px; }
-        .card h3 { font-size: 1.8rem; margin: 10px 0; color: #fff; }
-        .card p { color: #94a3b8; font-size: 1rem; margin-bottom: 30px; line-height: 1.6; }
-        
-        /* 🚀 4. Glowing Buttons */
-        .btn {
-            padding: 14px 30px; border-radius: 30px; text-decoration: none; font-weight: bold;
-            display: inline-block; transition: all 0.3s; font-size: 1.1rem;
-        }
-        .btn-primary {
-            background: linear-gradient(135deg, #3b82f6, #a855f7); color: white;
-            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
-            animation: pulse 2s infinite; /* Adds a subtle breathing effect */
-        }
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(168, 85, 247, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(168, 85, 247, 0); }
-        }
-        .btn-secondary { background: #1e293b; color: #94a3b8; border: 1px solid #334155; pointer-events: none; }
-        .btn-primary:hover { transform: scale(1.05); animation: none; box-shadow: 0 6px 20px rgba(168, 85, 247, 0.8); }
-
-        /* Sponsorship Banner */
-        .sponsor-section {
-            background: linear-gradient(135deg, #1e1b4b, #312e81);
-            padding: 80px 20px; text-align: center; border-top: 1px solid #4338ca;
-        }
-        .sponsor-section h2 { font-size: 2.5rem; margin-top: 0; color: #c7d2fe; }
-        .sponsor-section p { color: #a5b4fc; max-width: 600px; margin: 0 auto 30px auto; font-size: 1.1rem; line-height: 1.6; }
-        
-        /* Footer */
-        footer { text-align: center; padding: 40px; color: #475569; font-size: 0.9rem; }
-        .footer-links { margin-top: 15px; }
-        .footer-links a { color: #64748b; text-decoration: none; margin: 0 15px; transition: color 0.3s; }
-        .footer-links a:hover { color: #a855f7; text-decoration: underline; }
-        
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .hero { text-align: center; flex-direction: column; padding-top: 60px; }
-            .hero-text { text-align: center; }
-            .hero-text h1 { font-size: 2.5rem; }
-            nav { flex-direction: column; gap: 15px; padding: 20px; }
-            nav .links a { margin: 0 10px; }
-            .floating-app { display: none; } /* Hide heavy animation on small mobiles for speed */
-        }
-    </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="QuantumCore Labs builds practical mobile applications, web experiences and digital tools. Explore our products and resources.">
+<meta name="theme-color" content="#07111f">
+<title>QuantumCore Labs | Building Apps. Creating Solutions.</title>
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-
-    <nav>
-        <div class="logo">QuantumCore Labs</div>
-        <div class="links">
-            <a href="#products">Our Apps</a>
-            <a href="#sponsor">Partner With Us</a>
-        </div>
-    </nav>
-
-    <div class="hero">
-        <div class="hero-text">
-            <h1>Shaping the Future of Social</h1>
-            <p>We build secure, anonymous, and viral mobile applications that connect millions without compromising privacy. Welcome to the next generation.</p>
-            <a href="#products" class="btn btn-primary" style="animation: none;">Explore FlirtApp 👇</a>
-        </div>
-        <div class="floating-app">
-            <div class="app-icon-mock">💬</div>
-            <h2 style="color: white; margin: 0;">FlirtApp</h2>
-            <p style="color: #94a3b8; font-size: 14px;">100% Secure & Private</p>
-        </div>
-    </div>
-
-    <div class="viral-section" id="secret">
-        <h2>Drop an Anonymous Note 💌</h2>
-        <p>Your friend is waiting! Send them a cute compliment, a funny memory, or a secret confession. It's 100% safe and hidden! 😉</p>
-        <div class="fake-input">Write something nice here... ✨</div>
-        <br>
-        <a href="https://github.com/quantumcore-labs/quantumcore-labs.github.io/releases/download/v1.0.0/FlirtApp.apk" class="btn btn-primary" style="animation: none;">Download App to Send</a>
-    </div>
-
-    <div class="pro-ad-container">
-        <div class="ad-badge">Sponsored</div>
-        
-        <a href="mailto:tehok908@gmail.com" class="custom-sponsor">
-            <h3>Place Your Brand Here 🚀</h3>
-            <p>Reach thousands of highly engaged Gen-Z users. Click to partner with us!</p>
-        </a>
-
-        </div>
-
-    <div id="products" class="section-title">Our Ecosystem</div>
-    <div class="products">
-        
-        <div class="card">
-            <div class="badge">TRENDING</div>
-            <div class="card-icon">
-                <img src="sponsors/app_icon.png" alt="Smart Pad Pro" style="width: 90px; height:90px; object-fit: containt;">
-            </div>
-            <h3>FlirtApp</h3>
-            <p>The ultimate anonymous chat experience. Connect with friends securely, send secret messages, and discover who likes you.</p>
-            
-            <a href="https://github.com/quantumcore-labs/quantumcore-labs.github.io/releases/download/v1.0.0/FlirtApp.apk" class="btn btn-primary">Download FlirtApp</a>
-        </div>
-
-        <div class="card">
-            <div class="badge">TRENDING</div>
-            <div class="card-icon">
-                <img src="sponsors/smartpad.png" alt="Smart Pad Pro" style="width: 90px; height: 90px; object-fit: contain;">
-            </div>
-            <h3>Write & Draw Anything</h3>
-            <p>The ultimate writing Pad for anything in this Smart pad Pro multiple Features like more colores options,themes save as like image to your notes and more.</p>
-            <a href="https://techcyber381.github.io/smart-pad-pro-privacy/"style="display:inline-block; padding-bottom:50px;">Privacy Policy</a>
-            <a href="https://github.com/quantumcore-labs/quantumcore-labs.github.io/releases/download/smart-pad-pro-v1.0.0/Smart-Pad-Pro.apk" class="btn btn-primary">Download Smart Pad Pro</a>
-        </div>
-
-        <div class="card">
-            <div class="card-icon">🚀</div>
-            <h3>Project Nova</h3>
-            <p>A next-generation social gaming platform currently in stealth mode. Redefining how communities interact online.</p>
-            <a href="#" class="btn btn-secondary">In Development</a>
-        </div>
-    </div>
-
-    <div id="sponsor" class="sponsor-section">
-        <h2>Grow Your Business With Us 📈</h2>
-        <p>Want to showcase your brand to thousands of highly engaged users on FlirtApp? We offer premium, unblockable in-app banner placements at unbeatable rates.</p>
-        
-        <a href="mailto:tehok908@gmail.com" class="btn btn-primary" style="animation: none;">Contact for Sponsorship</a>
-    </div>
-
-    <footer>
-        &copy; 2026 QuantumCore Labs. All rights reserved. <br>Built with passion in India.
-        
-        <div class="footer-links">
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="delete-account.html">Delete Account Data</a>
-            <a href="terms.html">Terms of Service</a>
-        </div>
-    </footer>
-
-</body>
-</html>
+<header class="site-header"><div class="container nav-wrap">
+<a class="brand" href="index.html"><span class="brand-mark">Q</span><span>QuantumCore Labs</span></a>
+<button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">Menu</button>
+<nav class="nav-links" aria-label="Main navigation"><a href="index.html" aria-current="page">Home</a><a href="products/">Products</a><a href="downloads.html">Downloads</a><a href="resources.html">Resources</a><a href="about.html">About</a><a href="support.html">Support</a></nav>
+</div></header>
+<main>
+<section class="hero"><div class="container hero-grid">
+<div><span class="eyebrow">Independent software development</span><h1>Technology made <span class="gradient-text">useful.</span></h1><p class="hero-copy">We create practical mobile applications, web experiences and digital tools designed to make everyday tasks simpler.</p><div class="actions"><a class="btn btn-primary" href="products/">Explore our products →</a><a class="btn btn-secondary" href="about.html">Meet QuantumCore Labs</a></div></div>
+<aside class="hero-panel"><div class="panel-label">Our approach</div><div class="panel-title">Build with purpose.</div><p class="panel-copy">Useful features. Clear information. Thoughtful product experiences.</p><div class="mini-stat"><strong>01</strong><span>Mobile applications</span></div><div class="mini-stat"><strong>02</strong><span>Web solutions</span></div><div class="mini-stat"><strong>03</strong><span>Digital resources</span></div></aside>
+</div></section>
+<section class="section"><div class="container"><div class="section-head"><div class="section-kicker">Our products</div><h2 class="section-title">Explore what we're building</h2><p class="section-copy">Discover our available applications and follow the progress of products currently in development.</p></div>
+<div class="grid">
+<article class="card"><img class="app-icon" src="sponsors/app_icon.png" alt="FlirtApp app icon"><span class="status">Available</span><h3>FlirtApp</h3><p>A social messaging application focused on anonymous notes and connecting with friends.</p><a class="btn btn-secondary" href="products/flirtapp.html">View product details →</a></article>
+<article class="card"><img class="app-icon" src="sponsors/smartpad.png" alt="Smart Pad Pro app icon"><span class="status">Available</span><h3>Smart Pad Pro</h3><p>A writing and drawing pad for creating notes, using themes and colors, and saving work as images.</p><a class="btn btn-secondary" href="products/smart-pad-pro.html">View product details →</a></article>
+<article class="card"><div class="app-placeholder" aria-hidden="true">✦</div><span class="status planned">In development</span><h3>Project Nova</h3><p>A concept for a social gaming and community experience. More information will be shared as development progresses.</p><a class="btn btn-secondary" href="products/">Explore products →</a></article>
+</div></div></section>
+<section class="section"><div class="container"><div class="callout"><div class="section-kicker">Downloads & support</div><h2 class="section-title">Looking for an app or resource?</h2><p>Visit the downloads area for current release links, or contact us if you need help with one of our products.</p><div class="actions"><a class="btn btn-primary" href="downloads.html">Go to downloads</a><a class="btn btn-secondary" href="support.html">Get support</a></div></div></div></section>
+</main>
+<footer class="site-footer"><div class="container"><div class="footer-grid"><div><a class="brand" href="index.html"><span class="brand-mark">Q</span><span>QuantumCore Labs</span></a><p>Building Apps. Creating Solutions.</p><p>Independent software development brand.</p></div><div><div class="footer-title">Explore</div><div class="footer-links"><a href="products/">Products</a><a href="downloads.html">Downloads</a><a href="resources.html">Resources</a><a href="about.html">About us</a></div></div><div><div class="footer-title">Information</div><div class="footer-links"><a href="support.html">Contact & Support</a><a href="privacy.html">Privacy Policy</a><a href="delete-account.html">Delete Account Data</a><a href="terms.html">Terms of Service</a></div></div></div><div class="copyright">© 2026 QuantumCore Labs. All rights reserved. Built with care in India.</div></div></footer>
+<script src="assets/js/site.js"></script>
+</body></html>
